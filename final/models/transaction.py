@@ -1,3 +1,7 @@
+from dataclasses import dataclass
+from datetime import date
+from decimal import Decimal
+
 from sqlalchemy import Boolean, Column, Date, Integer, Numeric, String
 
 from ..app.database import db
@@ -5,6 +9,17 @@ from ..app.database import db
 
 class Transaction(db.Model):
     __tablename__ = 'transactions'
+
+    hshd_num: int
+    basket_num: int
+    date: date
+    product_num: int
+    spend: Decimal
+    units: int
+    store_region: str
+    week_num: int
+    year: int
+
 
     hshd_num = Column(Integer,primary_key=True,nullable=False)
     basket_num = Column(Integer,primary_key=True, nullable=False)
