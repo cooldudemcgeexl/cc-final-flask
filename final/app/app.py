@@ -3,7 +3,7 @@ import os
 from flask import Flask
 from flask_login import LoginManager
 
-from ..blueprints import auth, root
+from ..blueprints import auth, root, test
 from ..constants import POSTGRES_CON_STR
 from ..models import *
 from .database import db
@@ -23,6 +23,7 @@ def create_app():
 
     app.register_blueprint(root)
     app.register_blueprint(auth)
+    app.register_blueprint(test)
 
     with app.app_context():
         db.create_all()
