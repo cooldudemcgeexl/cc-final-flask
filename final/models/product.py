@@ -4,7 +4,7 @@ from ..app.database import db
 
 
 class Product(db.Model):
-    __tablebame__ = 'products'
+    __tablename__ = 'products'
 
     product_num = Column(Integer, primary_key=True)
     department = Column(String(30))
