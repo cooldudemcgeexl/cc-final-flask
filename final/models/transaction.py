@@ -6,10 +6,10 @@ from ..app.database import db
 class Transaction(db.Model):
     __tablename__ = 'transactions'
 
-    hshd_num = Column(Integer,nullable=False)
-    basket_num = Column(Integer, nullable=False)
+    hshd_num = Column(Integer,primary_key=True,nullable=False)
+    basket_num = Column(Integer,primary_key=True, nullable=False)
     date = Column(Date)
-    product_num = Column(Integer)
+    product_num = Column(Integer, primary_key=True)
     spend = Column(Numeric(8,2))
     units = Column(Integer)
     store_region = Column(String(8))

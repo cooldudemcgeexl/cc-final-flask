@@ -4,6 +4,7 @@ from flask import Flask
 from flask_login import LoginManager
 
 from ..blueprints import auth, root
+from ..constants import POSTGRES_PWD
 from ..models import *
 from .database import db
 
@@ -12,7 +13,7 @@ def create_app():
     app = Flask(__name__, template_folder='../templates')
     
     app.secret_key = os.urandom(24) #TODO: Change me
-    app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///db.sqlite'
+    app.config['SQLALCHEMY_DATABASE_URI'] = f'postgresql://cc_postgres_admin:{POSTGRES_PWD}@cc-final-postgres2.postgres.database.azure.com/postgres?sslmode=require'
 
     db.init_app(app)
 
