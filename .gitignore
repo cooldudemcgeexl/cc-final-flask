@@ -1,0 +1,6 @@
+**/__pycache__
+
+*.sqlite
+
+sample_data/*
+!sample_data/.keep
