@@ -1,1 +1,1 @@
-from .env import POSTGRES_PWD
+from .postgres import POSTGRES_CON_STR
