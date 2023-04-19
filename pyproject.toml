@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "proj2"
+name = "final"
 version = "0.1.0"
 description = ""
 authors = ["Nick Lay <layns@mail.uc.edu>"]
