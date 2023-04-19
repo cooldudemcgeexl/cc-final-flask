@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve final 
+After=network.target
+
+[Service]
+User=ubuntu
+Group=www-data
+WorkingDirectory=/home/ubuntu/app/cc-final-flask
+Environment="PATH=/home/ubuntu/app/cc-final-flask/.venv/bin"
+ExecStart=/home/ubuntu/app/cc-final-flask/.venv/bin/uwsgi --ini final.ini
+
+[Install]
+WantedBy=multi-user.target
