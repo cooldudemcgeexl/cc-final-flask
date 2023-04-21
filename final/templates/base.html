@@ -11,12 +11,19 @@
       integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
       crossorigin="anonymous"
     />
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/datatable.css') }}"/>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static',filename='styles/datatable.css') }}"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.2/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <link
+      rel="stylesheet"
+      href="//cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css"
+    />
   </head>
 
   <body>
@@ -40,14 +47,19 @@
                 <a href="{{ url_for('auth.signup') }}" class="navbar-item">
                   Sign Up
                 </a>
-                {% endif %}
-                {% if current_user.is_authenticated %}
+                {% endif %} {% if current_user.is_authenticated %}
                 <a href="{{ url_for('auth.logout') }}" class="navbar-item">
                   Logout
                 </a>
                 <a href="{{ url_for('data.data_pull')}}" class="navbar-item">
-                  Data Pull
+                  Data Pull Search
                 </a>
+                <a href="{{ url_for('data.data_pull_sample')}}" class="navbar-item">
+                  Sample Data Pull
+                </a>
+                <a href="{{ url_for('upload.upload_page')}}" class="navbar-item"
+                  >Upload Data</a
+                >
                 {% endif %}
               </div>
             </div>
@@ -61,9 +73,21 @@
         </div>
       </div>
     </section>
-    <script type="text/javascript" charset="utf8" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"></script>
-    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.js"
+    ></script>
+    <script
+      type="text/javascript"
+      charset="utf8"
+      src="https://cdn.datatables.net/1.10.25/js/dataTables.bootstrap5.js"
+    ></script>
     {% block scripts %}{% endblock %}
   </body>
 </html>
