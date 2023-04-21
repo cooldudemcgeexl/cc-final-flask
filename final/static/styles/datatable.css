@@ -1,3 +1,11 @@
 .dataTable {
     overflow: auto;
 }
+
+.householdData {
+    background-color: blueviolet;
+}
+
+.householdHeader {
+    background-color: darkorchid;
+}
