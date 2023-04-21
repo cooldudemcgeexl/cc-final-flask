@@ -1,0 +1,61 @@
+{% extends "base.html" %} {% block content %}
+<div class="dataTable">
+<table id="data" class="table table-striped" >
+  <thead>
+    <tr>
+      <th>Hshd num</th>
+      <th>Basket Num</th>
+      <th>Date</th>
+      <th>Product Num</th>
+      <th>Department</th>
+      <th>Commodity</th>
+      <th>Spend</th>
+      <th>Units</th>
+      <th>Store Region</th>
+      <th>Week Num</th>
+      <th>Year</th>
+      <th>Loyalty Flag</th>
+      <th>Age Range</th>
+      <th>Marital Status</th>
+      <th>Income Range</th>
+      <th>Homeowner Desc</th>
+      <th>Hshd Composition</th>
+      <th>Hshd Size</th>
+      <th>Children</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for data in data_pull %}
+    <tr>
+      <td>{{ data.hshd_num }}</td>
+      <td>{{ data.basket_num }}</td>
+      <td>{{ data.date }}</td>
+      <td>{{ data.product_num }}</td>
+      <td>{{ data.department }}</td>
+      <td>{{ data.commodity }}</td>
+      <td>{{ data.spend }}</td>
+      <td>{{ data.units }}</td>
+      <td>{{ data.store_region }}</td>
+      <td>{{ data.week_num }}</td>
+      <td>{{ data.year }}</td>
+      <td>{{ data.loyalty_flag }}</td>
+      <td>{{ data.age_range }}</td>
+      <td>{{ data.marital_status }}</td>
+      <td>{{ data.income_range }}</td>
+      <td>{{ data.homeowner_desc }}</td>
+      <td>{{ data.hshd_composition }}</td>
+      <td>{{ data.hshd_size }}</td>
+      <td>{{ data.children }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
+{% block scripts %}
+ <script>
+    $(document).ready(function () {
+      $('#data').DataTable();
+    });
+  </script>
+{% endblock %}

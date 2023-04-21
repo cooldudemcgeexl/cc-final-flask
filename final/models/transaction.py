@@ -2,11 +2,12 @@ from dataclasses import dataclass
 from datetime import date
 from decimal import Decimal
 
-from sqlalchemy import Boolean, Column, Date, Integer, Numeric, String
+from sqlalchemy import Column, Date, Integer, Numeric, String
 
 from ..app.database import db
 
 
+@dataclass
 class Transaction(db.Model):
     __tablename__ = 'transactions'
 

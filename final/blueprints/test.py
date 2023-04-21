@@ -1,7 +1,7 @@
 from flask import Blueprint, jsonify, request
-from flask_login import login_required
 
-from ..models import Household, Product
+from ..app.database import db
+from ..models import DataPull, Household, Product, Transaction
 
 hshd_num= 10
 product_num = 7
@@ -19,3 +19,8 @@ def household_test():
 def product_test():
     product: Product = Product.query.filter_by(product_num=product_num).first()
     return jsonify(product)
+
+@test.route('/datapull')
+def data_pull_test():
+    data_pull: DataPull = DataPull.query.filter_by(hshd_num=10).all()
+    return jsonify(data_pull)

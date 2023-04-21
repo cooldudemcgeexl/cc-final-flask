@@ -14,6 +14,8 @@ class Household(db.Model):
     marital_status: str
     income_range: str
     hshd_size: int
+    homeowner_desc: str
+    hshd_composition: str
     children: int
 
     hshd_num = Column(Integer, primary_key=True, nullable=False)
@@ -21,6 +23,8 @@ class Household(db.Model):
     age_range = Column(String(5))
     marital_status = Column(String(10))
     income_range = Column(String(30))
+    homeowner_desc = Column(String(10))
+    hshd_composition = Column(String(30))
     hshd_size = Column(Integer)
     children = Column(Integer)
 
