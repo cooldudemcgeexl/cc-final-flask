@@ -1,15 +1,28 @@
 {%extends "base.html"%} {% block content %}
 
 <div>
-    {% if upload_success %}
-    <p>Files uploaded successfully!</p>
-    {% endif %}
-    <form action="/uploader" method="post" enctype="multipart/form-data">
-        <input type="file" name="file1" id="file1"/>
-        <input type="file" name="file2" id="file2"/>
-        <input type="file" name="file3" id="file3"/>
+  {% if upload_success %}
+  <p>Files uploaded successfully!</p>
+  {% endif %}
+  <form action="/uploader" method="post" enctype="multipart/form-data">
+    <ul>
+      <li>
+        <label for="file1">Household data:</label>
+        <input type="file" name="file1" id="file1" />
+      </li>
+      <li>
+        <label for="file2">Transaction data:</label>
+        <input type="file" name="file2" id="file2" />
+      </li>
+      <li>
+        <label for="file3">Purchase data:</label>
+        <input type="file" name="file3" id="file3" />
+      </li>
+      <li>
         <input type="submit" />
-    </form>
+      </li>
+    </ul>
+  </form>
 </div>
 
 {% endblock %}
