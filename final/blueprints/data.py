@@ -21,3 +21,4 @@ def data_pull():
 @data.route('/sample')
 def data_pull_sample():
     return redirect(f"{url_for('data.data_pull')}?household_num=10")
+

@@ -1,0 +1,15 @@
+{%extends "base.html"%} {% block content %}
+
+<div>
+    {% if upload_success %}
+    <p>Files uploaded successfully!</p>
+    {% endif %}
+    <form action="/uploader" method="post" enctype="multipart/form-data">
+        <input type="file" name="file1" id="file1"/>
+        <input type="file" name="file2" id="file2"/>
+        <input type="file" name="file3" id="file3"/>
+        <input type="submit" />
+    </form>
+</div>
+
+{% endblock %}

@@ -6,3 +6,5 @@ sample_data/*
 !sample_data/.keep
 
 .env
+
+uploads/*

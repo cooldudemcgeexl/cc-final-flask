@@ -3,7 +3,7 @@ import os
 from flask import Flask
 from flask_login import LoginManager
 
-from ..blueprints import auth, data, root, test
+from ..blueprints import BLUEPRINTS
 from ..constants import POSTGRES_CON_STR
 from ..models import *
 from .database import db
@@ -21,10 +21,8 @@ def create_app():
     login_manager.login_view = 'auth.login'
     login_manager.init_app(app)
 
-    app.register_blueprint(root)
-    app.register_blueprint(auth)
-    app.register_blueprint(test)
-    app.register_blueprint(data)
+    for blueprint in BLUEPRINTS:
+        app.register_blueprint(blueprint=blueprint)
 
     with app.app_context():
         db.create_all()
