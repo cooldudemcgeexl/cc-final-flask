@@ -5,6 +5,13 @@ from ..constants import DATA_REGEX, UPLOAD_DIRECTORY
 from ..models import Household
 
 
+def normalize_dict(dict: dict[str, str]):
+    return {
+        key.strip(): value.strip() if value.strip() != "null" else None
+        for key, value in dict.items()
+    }
+
+
 def parse_uploaded_files():
     for file in UPLOAD_DIRECTORY.glob("*.csv"):
         categorySearch = DATA_REGEX.search(file.name)
@@ -25,10 +32,7 @@ def parse_households(csv_path: Path | str):
     with open(csv_path) as csvfile:
         reader = csv.DictReader(csvfile)
         for row in reader:
-            normDict = {
-                key.strip(): value.strip() if value.strip() != "null" else None
-                for key, value in row.items()
-            }
+            normDict = normalize_dict(row)
             households_list.append(
                 Household(
                     hshd_num=normDict["HSHD_NUM"],
