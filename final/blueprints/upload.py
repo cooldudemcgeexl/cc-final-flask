@@ -5,28 +5,29 @@ from ..app.database import db
 from ..constants import ALLOWED_EXTENSIONS, UPLOAD_DIRECTORY
 from ..utils import parse_uploaded_files
 
-upload = Blueprint('upload', __name__)
+upload = Blueprint("upload", __name__)
 
 
-@upload.route('/upload')
+@upload.route("/upload")
 def upload_page():
-    upload_success = request.args.get('uploadSuccess')
-    return render_template('upload.html', upload_success=upload_success)
+    upload_success = request.args.get("uploadSuccess")
+    return render_template("upload.html", upload_success=upload_success)
 
 
-@upload.route('/uploader', methods=['GET','POST'])
+@upload.route("/uploader", methods=["GET", "POST"])
 def upload_data():
-    if request.method == 'POST':
-        
-        if not request.files:    
-            return redirect(url_for('upload.upload_page'))
+    if request.method == "POST":
+        if not request.files:
+            return redirect(url_for("upload.upload_page"))
 
-        for _,file in request.files.items():
+        for _, file in request.files.items():
             if file.filename.endswith(ALLOWED_EXTENSIONS) and file.filename:
-                file.save(f'{UPLOAD_DIRECTORY.resolve()}/{file.filename}')
+                file.save(f"{UPLOAD_DIRECTORY.resolve()}/{file.filename}")
 
-        parse_uploaded_files()
+        upload_success = parse_uploaded_files()
 
-        return redirect(f"{url_for('upload.upload_page')}?uploadSuccess=True")
+        return redirect(
+            f"{url_for('upload.upload_page')}?uploadSuccess={upload_success}"
+        )
 
-    return redirect(url_for('upload.upload_page'))
+    return redirect(url_for("upload.upload_page"))
