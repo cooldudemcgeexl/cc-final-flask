@@ -4,6 +4,7 @@ import pandas as pd
 import plotly
 import plotly.express as px
 from flask import Blueprint, redirect, render_template, request, url_for
+from flask_login import login_required
 
 from ..app.database import db
 from ..constants.postgres import POSTGRES_CON_STR
@@ -13,6 +14,7 @@ charts = Blueprint("charts", __name__)
 
 
 @charts.route("/charts")
+@login_required
 def make_charts():
     dp_string = db.session.query(DataPull).statement
     data_pull_df = pd.read_sql(dp_string, POSTGRES_CON_STR)

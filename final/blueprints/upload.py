@@ -9,12 +9,14 @@ upload = Blueprint("upload", __name__)
 
 
 @upload.route("/upload")
+@login_required
 def upload_page():
     upload_success = request.args.get("uploadSuccess")
     return render_template("upload.html", upload_success=upload_success)
 
 
 @upload.route("/uploader", methods=["GET", "POST"])
+@login_required
 def upload_data():
     if request.method == "POST":
         if not request.files:
