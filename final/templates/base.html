@@ -54,12 +54,21 @@
                 <a href="{{ url_for('data.data_pull')}}" class="navbar-item">
                   Data Pull Search
                 </a>
-                <a href="{{ url_for('data.data_pull_sample')}}" class="navbar-item">
+                <a
+                  href="{{ url_for('data.data_pull_sample')}}"
+                  class="navbar-item"
+                >
                   Sample Data Pull
                 </a>
                 <a href="{{ url_for('upload.upload_page')}}" class="navbar-item"
                   >Upload Data</a
                 >
+                <a
+                  href="{{ url_for('charts.make_charts')}}"
+                  class="navbar-item"
+                >
+                  Engagement Charts
+                </a>
                 {% endif %}
               </div>
             </div>

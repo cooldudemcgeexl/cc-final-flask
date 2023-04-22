@@ -1,0 +1,17 @@
+{% extends 'base.html' %} {% block content %}
+<div><p>Engagement Statistics</p></div>
+<div id="chart1" class="chart"></div>
+<div id="chart2" class="chart"></div>
+<div id="chart3" class="chart"></div>
+
+{% endblock %} {% block scripts %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script type="text/javascript">
+  var graph1 = {{ graph1JSON | safe }};
+  var graph2 = {{ graph2JSON | safe }};
+  var graph3 = {{ graph3JSON | safe }};
+  Plotly.plot('chart1',graph1,{});
+  Plotly.plot('chart2',graph2,{});
+  Plotly.plot('chart3',graph3,{});
+</script>
+{% endblock %}
