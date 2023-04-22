@@ -1,0 +1,6 @@
+services:
+  python:
+    build:
+      context: .
+    ports:
+      - 80:5000
