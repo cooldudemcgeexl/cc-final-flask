@@ -4,3 +4,5 @@ services:
       context: .
     ports:
       - 80:5000
+    env_file:
+      - .env
